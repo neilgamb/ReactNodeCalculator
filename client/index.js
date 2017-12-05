@@ -1,10 +1,11 @@
-import React from 'react'; // import React package
-import ReactDOM from 'react-dom'; // import ReactDOM package
-import './styles/main.css'; // import our external css file
+import React from 'react'; 
+import ReactDOM from 'react-dom'; 
+import './styles/main.css'; 
+import Frame from './components/frame';
 
-// using the render method, we will mount this node into our DOM (html file) on the element with 
-// id of 'app'
 ReactDOM.render(
-  <div class="container">React+Node Calculator!</div>, 
+  <div class="container">
+    <Frame />
+  </div>, 
   document.getElementById('app')
 );

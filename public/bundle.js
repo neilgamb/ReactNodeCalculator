@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,6 +264,20 @@ process.umask = function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(32);
+} else {
+  module.exports = __webpack_require__(31);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
@@ -302,7 +316,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -326,7 +340,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -422,20 +436,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 };
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(28);
-} else {
-  module.exports = __webpack_require__(27);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -510,7 +510,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -580,7 +580,7 @@ module.exports = warning;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -700,7 +700,7 @@ module.exports = ExecutionEnvironment;
  * 
  */
 
-var isTextNode = __webpack_require__(23);
+var isTextNode = __webpack_require__(27);
 
 /*eslint-disable no-bitwise */
 
@@ -892,7 +892,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(24);
+  var ReactPropTypesSecret = __webpack_require__(28);
   var loggedTypeFailures = {};
 }
 
@@ -946,6 +946,146 @@ module.exports = checkPropTypes;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _screen = __webpack_require__(18);
+
+var _screen2 = _interopRequireDefault(_screen);
+
+var _button = __webpack_require__(17);
+
+var _button2 = _interopRequireDefault(_button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // Import our screen component from this directory
+
+
+// Import our button component from this directory
+
+var Frame = function (_React$Component) {
+    _inherits(Frame, _React$Component);
+
+    function Frame() {
+        _classCallCheck(this, Frame);
+
+        // set our default state
+        var _this = _possibleConstructorReturn(this, (Frame.__proto__ || Object.getPrototypeOf(Frame)).call(this));
+
+        _this.state = {
+            question: '',
+            answer: ''
+            // Bind our handleClick method (sets 'this' explicitly to refer to this componenent)
+            // We did this because 'this' would refer to the source of the click events
+        };_this.handleClick = _this.handleClick.bind(_this);
+        return _this;
+    }
+
+    // Render function to creat component to be rendered on the DOM.
+    // This method must return a single parent element as you can see here. 
+    // The component is wrapped around () to make it a single expression.
+
+
+    _createClass(Frame, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'frame' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'calculator-title' },
+                    'R_N Calculator'
+                ),
+                _react2.default.createElement(_screen2.default, { question: this.state.question, answer: this.state.answer }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'button-row' },
+                    _react2.default.createElement(_button2.default, { label: '1', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '2', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '3', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '4', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '-', handleClick: this.handleClick, type: 'action' }),
+                    _react2.default.createElement(_button2.default, { label: '+', handleClick: this.handleClick, type: 'action' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'button-row' },
+                    _react2.default.createElement(_button2.default, { label: '5', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '6', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '7', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '8', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '*', handleClick: this.handleClick, type: 'action' }),
+                    _react2.default.createElement(_button2.default, { label: '/', handleClick: this.handleClick, type: 'action' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'button-row' },
+                    _react2.default.createElement(_button2.default, { label: '9', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '.', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: '0', handleClick: this.handleClick, type: 'input' }),
+                    _react2.default.createElement(_button2.default, { label: 'Cls', handleClick: this.handleClick, type: 'action' }),
+                    _react2.default.createElement(_button2.default, { label: '=', handleClick: this.handleClick, type: 'action' })
+                )
+            );
+        }
+
+        // our method to handle all click events from our buttons
+
+    }, {
+        key: 'handleClick',
+        value: function handleClick(event) {
+            var value = event.target.value; // get the value from the target element (button)
+            switch (value) {
+                case '=':
+                    {
+                        // if it's an equal sign, use the eval module to evaluate the question
+                        // convert the answer (in number) to String
+                        var answer = eval(this.state.question).toString();
+                        // update answer in our state.
+                        this.setState({ answer: answer });
+                        break;
+                    }
+                case 'Cls':
+                    {
+                        // if it's the Cls sign, just clean our question and answer in the state
+                        this.setState({ question: '', answer: '' });
+                        break;
+                    }
+                default:
+                    {
+                        // for every other commmand, update the answer in the state
+                        this.setState({ question: this.state.question += value });
+                        break;
+                    }
+            }
+        }
+    }]);
+
+    return Frame;
+}(_react2.default.Component);
+
+exports.default = Frame;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 function checkDCE() {
@@ -977,20 +1117,20 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(26);
+  module.exports = __webpack_require__(30);
 } else {
-  module.exports = __webpack_require__(25);
+  module.exports = __webpack_require__(29);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(30);
+var content = __webpack_require__(34);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -998,7 +1138,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(31)(content, options);
+var update = __webpack_require__(35)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1015,37 +1155,151 @@ if(false) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(14);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+// import react module
 
-__webpack_require__(15);
+// create our Button component as a functional component
+var Button = function Button(props) {
+  return _react2.default.createElement('input', {
+    type: 'button',
+    className: props.type === 'action' ? 'button action-button' : 'button input-button',
+    onClick: props.handleClick,
+    value: props.label
+  });
+};
+
+// describe our expected props types
+// Button.propTypes = {
+//   type: React.PropTypes.string.isRequired,
+//   handleClick: React.PropTypes.func.isRequired,
+//   label: React.PropTypes.string.isRequired
+// }
+
+// export our button component.
+exports.default = Button;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _screenRow = __webpack_require__(19);
+
+var _screenRow2 = _interopRequireDefault(_screenRow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import our external css file
+// Create our screen component as a functional component.
+// It would display two screen rows, 1 for questions and the other for the answer
+// The value would be passed down from it's parent component as a prop
+exports.default = Screen = function Screen(props) {
+  return _react2.default.createElement(
+    'div',
+    { className: 'screen' },
+    _react2.default.createElement(_screenRow2.default, { value: props.question }),
+    _react2.default.createElement(_screenRow2.default, { value: props.answer })
+  );
+};
 
-// using the render method, we will mount this node into our DOM (html file) on the element with 
-// id of 'app'
-// import React package
+// Define our props expected from the parent component
+// Screen.propTypes = {
+//   question: React.PropTypes.string.isRequired,
+//   answer: React.PropTypes.string.isRequired
+// }
+// Import react module
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Screen row component is written as a functional component
+// it receives and displays (in an input field) a props (property) of value from
+// it's parent component
+var ScreenRow = function ScreenRow(props) {
+  return _react2.default.createElement(
+    "div",
+    { className: "screen-row" },
+    _react2.default.createElement("input", { type: "text", readOnly: true, value: props.value })
+  );
+};
+
+// we describe the props (property) that the parent element is required to pass
+// into this component
+// ScreenRow.propTypes = {
+//   value: React.PropTypes.string.isRequired
+// }
+
+exports.default = ScreenRow;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(15);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+__webpack_require__(16);
+
+var _frame = __webpack_require__(14);
+
+var _frame2 = _interopRequireDefault(_frame);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 _reactDom2.default.render(_react2.default.createElement(
   'div',
   { 'class': 'container' },
-  'React+Node Calculator!'
-), document.getElementById('app')); // import ReactDOM package
+  _react2.default.createElement(_frame2.default, null)
+), document.getElementById('app'));
 
 /***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1127,7 +1381,7 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 18 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1162,7 +1416,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1177,7 +1431,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(18);
+var camelize = __webpack_require__(22);
 
 var msPattern = /^-ms-/;
 
@@ -1205,7 +1459,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1241,7 +1495,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 21 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1256,7 +1510,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(20);
+var hyphenate = __webpack_require__(24);
 
 var msPattern = /^ms-/;
 
@@ -1283,7 +1537,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1314,7 +1568,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1329,7 +1583,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(22);
+var isNode = __webpack_require__(26);
 
 /**
  * @param {*} object The object to check.
@@ -1342,7 +1596,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1360,7 +1614,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1371,7 +1625,7 @@ module.exports = ReactPropTypesSecret;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(4);var invariant=__webpack_require__(5);var warning=__webpack_require__(6);var ExecutionEnvironment=__webpack_require__(8);var _assign=__webpack_require__(3);var emptyFunction=__webpack_require__(1);var EventListener=__webpack_require__(7);var getActiveElement=__webpack_require__(11);var shallowEqual=__webpack_require__(12);var containsNode=__webpack_require__(9);var focusNode=__webpack_require__(10);var emptyObject=__webpack_require__(2);var checkPropTypes=__webpack_require__(13);var hyphenateStyleName=__webpack_require__(21);var camelizeStyleName=__webpack_require__(19);/**
+ */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(1);var invariant=__webpack_require__(5);var warning=__webpack_require__(6);var ExecutionEnvironment=__webpack_require__(8);var _assign=__webpack_require__(4);var emptyFunction=__webpack_require__(2);var EventListener=__webpack_require__(7);var getActiveElement=__webpack_require__(11);var shallowEqual=__webpack_require__(12);var containsNode=__webpack_require__(9);var focusNode=__webpack_require__(10);var emptyObject=__webpack_require__(3);var checkPropTypes=__webpack_require__(13);var hyphenateStyleName=__webpack_require__(25);var camelizeStyleName=__webpack_require__(23);/**
  * WARNING: DO NOT manually require this module.
  * This is a replacement for `invariant(...)` used by the error code system
  * and will _only_ be required by the corresponding babel pass.
@@ -4344,7 +4598,7 @@ var reactDom=ReactDOM$3['default']?ReactDOM$3['default']:ReactDOM$3;module.expor
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4364,16 +4618,16 @@ var reactDom=ReactDOM$3['default']?ReactDOM$3['default']:ReactDOM$3;module.expor
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var aa = __webpack_require__(4),
+var aa = __webpack_require__(1),
     l = __webpack_require__(8),
-    B = __webpack_require__(3),
-    C = __webpack_require__(1),
+    B = __webpack_require__(4),
+    C = __webpack_require__(2),
     ba = __webpack_require__(7),
     da = __webpack_require__(11),
     ea = __webpack_require__(12),
     fa = __webpack_require__(9),
     ia = __webpack_require__(10),
-    D = __webpack_require__(2);
+    D = __webpack_require__(3);
 function E(a) {
   for (var b = arguments.length - 1, c = "Minified React error #" + a + "; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d" + a, d = 0; d < b; d++) {
     c += "\x26args[]\x3d" + encodeURIComponent(arguments[d + 1]);
@@ -6341,7 +6595,7 @@ Z.injectIntoDevTools({ findFiberByHostInstance: pb, bundleType: 0, version: "16.
     Ug = Tg && Sg || Tg;module.exports = Ug["default"] ? Ug["default"] : Ug;
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6362,11 +6616,11 @@ if (process.env.NODE_ENV !== "production") {
   (function () {
     'use strict';
 
-    var _assign = __webpack_require__(3);
-    var emptyObject = __webpack_require__(2);
+    var _assign = __webpack_require__(4);
+    var emptyObject = __webpack_require__(3);
     var invariant = __webpack_require__(5);
     var warning = __webpack_require__(6);
-    var emptyFunction = __webpack_require__(1);
+    var emptyFunction = __webpack_require__(2);
     var checkPropTypes = __webpack_require__(13);
 
     // TODO: this is special because it gets imported during build.
@@ -7701,7 +7955,7 @@ if (process.env.NODE_ENV !== "production") {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7718,9 +7972,9 @@ if (process.env.NODE_ENV !== "production") {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var m = __webpack_require__(3),
-    n = __webpack_require__(2),
-    p = __webpack_require__(1),
+var m = __webpack_require__(4),
+    n = __webpack_require__(3),
+    p = __webpack_require__(2),
     q = "function" === typeof Symbol && Symbol["for"],
     r = q ? Symbol["for"]("react.element") : 60103,
     t = q ? Symbol["for"]("react.call") : 60104,
@@ -7830,7 +8084,7 @@ var U = { Children: { map: function map(a, b, e) {
     W = V && U || V;module.exports = W["default"] ? W["default"] : W;
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7925,21 +8179,21 @@ module.exports = function (css) {
 };
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(21)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "* {\n    border: 1px solid white;\n}\nbody {\n    color: white;\n    background: black;\n}", ""]);
+exports.push([module.i, "* {\n    /* border: 1px solid white; */\n    /* padding: 2px; */\n}\nbody {\n    color: white;\n    background: black;\n}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -7995,7 +8249,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(29);
+var	fixUrls = __webpack_require__(33);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -8312,3 +8566,4 @@ function updateLink (link, options, obj) {
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map

@@ -8,6 +8,7 @@ const config = {
     path: path.join(__dirname, './public/'), // output path (directory/folder)
     filename: 'bundle.js' // output bundled file name
   },
+  devtool: 'source-map',
   watch: true,
   module: { // define our loaders here
     // array of rules to handle different file types
